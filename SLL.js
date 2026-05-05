@@ -177,7 +177,7 @@ class SinglyLinkedList {
             fast = fast.next.next;
         }
 
-        return console.log(slow.value);
+        return console.log(`Middle element is: ${slow.value}`);
     }
 
     //Delete the middle element
@@ -317,6 +317,30 @@ class SinglyLinkedList {
         return console.log(res)
     }
 
+    // swap first and last nodes
+    swap(){
+        if(!this.head || !this.head.next) return null;
+
+        let first = this.head;
+        let prev = null;
+        let current = this.head;
+
+        while(current.next){
+            prev = current;
+            current = current.next;
+        }
+
+        let last = current;
+
+        prev.next = first;
+        last.next = first.next;
+        first.next = null;
+
+        this.head = last;
+        return this.print()
+    }
+
+
     //10. print
     print(){ 
         
@@ -371,3 +395,5 @@ list.reverse();
 list.print();
 list.reverse();
 list.middleElement()
+list.print();
+list.swap()
