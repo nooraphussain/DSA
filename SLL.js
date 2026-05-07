@@ -216,6 +216,21 @@ class SinglyLinkedList {
         return console.log('Value not found');
     }
 
+
+    findTarget(index){
+        if(!this.head) return null;
+        if(index<0 || index>this.size) return console.log('Invalid index');
+        
+        let i = 0;
+        let current = this.head;
+        while(i<index){
+            current = current.next;
+            i++;
+        }
+        return console.log(`The value at index ${index} is: ${current.value}`)
+    }
+    
+
     //Detect linked list has cyle
     hasCycle(){
         if(!this.head) return null
