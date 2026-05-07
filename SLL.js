@@ -229,7 +229,6 @@ class SinglyLinkedList {
         }
         return console.log(`The value at index ${index} is: ${current.value}`)
     }
-    
 
     //Detect linked list has cyle
     hasCycle(){
