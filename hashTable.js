@@ -92,4 +92,66 @@
 
 const hash = {};
 hash['name'] = 'Noora';
-console.log(hash['name'])
+console.log(hash['name']);
+
+
+//Remove Duplicates from String Using Hash Table
+function removeDuplicates(str){
+  const seen = {};
+  let res = '';
+
+  for(let char of str){
+    if(!seen[char]){
+      seen[char] = true;
+      res += char;
+    }
+  }
+  return res;
+}
+
+console.log(removeDuplicates('programming'));
+
+
+//Find Elements with Second Least Frequency
+function secondLeastFrequent(arr){
+  const freq = {};
+  for(let n of arr){
+    freq[n] = (freq[n] || 0) + 1;
+  }
+
+  const uniqueFrequencies = [...new Set(Object.values(freq))];
+  const sorted = uniqueFrequencies.sort((a,b) => a - b);
+
+  if(sorted.length < 2) return [];
+
+  let secondLeast = sorted[1];
+  let res = [];
+
+  for(let key in freq){
+    if(freq[key] === secondLeast){
+      res.push(Number(key))
+    }
+  }
+  return res;
+}
+console.log(secondLeastFrequent([1,1,2,2,2,3,3,4]));
+
+
+
+
+//First Non-Repeating Character Using Hash Table
+function firstNonRepeating(str){
+  const freq = {}
+  for(let char of str){
+    freq[char] = (freq[char] || 0) + 1
+  }
+
+  for(let char of str){
+    if(freq[char] === 1){
+      return char;
+    }
+  }
+  return null;
+}
+
+console.log(firstNonRepeating("aabbcdde"));
